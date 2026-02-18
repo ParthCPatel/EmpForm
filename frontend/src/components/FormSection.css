@@ -1,0 +1,288 @@
+﻿.form-section {
+    background: #fff;
+    padding: 0 0 16px 0;
+    margin-bottom: 24px;
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.section-indicator {
+    display: none;
+    /* Removing the blue bar for a cleaner standard look */
+}
+
+.section-header h3 {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    /* Refined label color */
+    text-align: left;
+}
+
+.required::after {
+    content: " *";
+    color: #ef4444;
+}
+
+.form-input {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 0.95rem;
+    color: var(--text-primary);
+    background-color: #fff;
+    transition: all 0.2s;
+    box-sizing: border-box;
+}
+
+.form-input:hover {
+    border-color: #d1d5db;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px var(--focus-ring);
+}
+
+.input-with-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-icon {
+    position: absolute;
+    left: 14px;
+    color: #9ca3af;
+    pointer-events: none;
+}
+
+.input-with-icon .form-input {
+    padding-left: 42px;
+}
+
+/* Preferences Specifics */
+.label-with-icon {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.segmented-control {
+    display: flex;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 4px;
+    background-color: #f9fafb;
+}
+
+.segment-btn {
+    flex: 1;
+    border: none;
+    background: none;
+    padding: 8px;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    border-radius: 6px;
+    transition: all 0.2s;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.segment-btn:hover {
+    color: var(--text-primary);
+}
+
+.segment-btn.active {
+    background-color: #fff;
+    color: var(--primary-color);
+    font-weight: 600;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Toggle Switch */
+.toggle-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    padding: 5px 0;
+    height: 42px;
+    /* Match input height roughly */
+}
+
+.toggle-switch {
+    width: 48px;
+    height: 26px;
+    background-color: #e5e7eb;
+    border-radius: 9999px;
+    position: relative;
+    transition: background-color 0.2s;
+}
+
+.toggle-switch.on {
+    background-color: var(--primary-color);
+}
+
+.toggle-handle {
+    width: 22px;
+    height: 22px;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    transition: transform 0.2s cubic-bezier(0.4, 0.0, 0.2, 1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.toggle-switch.on .toggle-handle {
+    transform: translateX(22px);
+}
+
+.toggle-label {
+    font-size: 0.95rem;
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+/* Time Inputs */
+.time-range {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.time-box-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+    min-width: 130px;
+}
+
+.time-box-label {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+}
+
+.time-box {
+    display: flex;
+    align-items: center;
+    position: relative;
+    background: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 0;
+    transition: all 0.2s;
+    height: 46px;
+    /* Match standard input height roughly */
+    overflow: hidden;
+}
+
+.time-box:hover {
+    border-color: #d1d5db;
+}
+
+.time-box:focus-within {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px var(--focus-ring);
+}
+
+.time-box-disabled {
+    background-color: #f3f4f6;
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.time-box-input {
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 0.95rem;
+    font-weight: 400;
+    color: var(--text-primary);
+    width: 100%;
+    height: 100%;
+    padding: 0 12px;
+    font-family: inherit;
+    cursor: pointer;
+    z-index: 2;
+    /* Ensure input is on top of icon */
+}
+
+/* Make the native picker cover the input for easier clicking, or at least the right side */
+.time-box-input::-webkit-calendar-picker-indicator {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.time-box-input:disabled {
+    color: #9ca3af;
+    cursor: not-allowed;
+}
+
+.time-box-icon {
+    position: absolute;
+    right: 12px;
+    width: 18px;
+    height: 18px;
+    color: #9ca3af;
+    pointer-events: none;
+    z-index: 1;
+}
+
+@media (max-width: 640px) {
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+.time-box-error {
+    border-color: #ef4444 !important;
+}
+
+.time-box-error:focus-within {
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2) !important;
+}
+
+.error-message-time {
+    color: #ef4444;
+    font-size: 0.85rem;
+    margin-top: 8px;
+    font-weight: 500;
+    width: 100%;
+}
