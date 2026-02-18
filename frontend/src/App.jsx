@@ -5,6 +5,8 @@ import BasicInfo from './components/BasicInfo';
 import Preferences from './components/Preferences';
 import SummaryPage from './components/SummaryPage';
 import AdminPage from './components/AdminPage';
+import logo from './assets/logo.jpg';
+import ErrorModal from './components/ErrorModal';
 import './App.css';
 
 // FormPage Component
@@ -15,6 +17,8 @@ const FormPage = ({
   searchQuery, setSearchQuery
 }) => {
   const navigate = useNavigate();
+  const [isErrorOpen, setIsErrorOpen] = useState(false);
+  const [errorMsg, setErrorMsg] = useState('');
 
   const handlePersonalInfoChange = (field, value) => {
     setPersonalInfo(prev => ({ ...prev, [field]: value }));
@@ -27,6 +31,7 @@ const FormPage = ({
   return (
     <div className="main-content">
       <header className="app-header">
+        <img src={logo} alt="App Logo" className="app-logo" />
         <div className="header-badge">
           {/* <span>🚀</span> */}
           <span>Programmer Registration</span>
@@ -77,13 +82,32 @@ const FormPage = ({
 
       <div className="action-bar">
         <button
-          onClick={() => navigate('/summary')}
+          onClick={() => {
+            if (!personalInfo.name || !personalInfo.email || !personalInfo.mobile) {
+              setErrorMsg("Please fill in all Basic Information (Name, Email, Mobile).");
+              setIsErrorOpen(true);
+              return;
+            }
+            if (selectedSkills.size === 0) {
+              setErrorMsg("Please select at least one technical skill.");
+              setIsErrorOpen(true);
+              return;
+            }
+            navigate('/summary');
+          }}
           className="next-btn"
         >
           Next &rarr;
         </button>
       </div>
-    </div>
+
+
+      <ErrorModal
+        isOpen={isErrorOpen}
+        onClose={() => setIsErrorOpen(false)}
+        message={errorMsg}
+      />
+    </div >
   );
 };
 

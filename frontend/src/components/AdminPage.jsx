@@ -13,7 +13,8 @@ const AdminPage = () => {
         setIsLoading(true);
 
         try {
-            const response = await fetch('http://localhost:8000/api/export', {
+            const API_URL = import.meta.env.VITE_API_URL || 'https://empform-2h9m.onrender.com/api';
+            const response = await fetch(`${API_URL}/export`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

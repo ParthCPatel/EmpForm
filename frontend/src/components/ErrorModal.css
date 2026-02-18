@@ -24,17 +24,15 @@
     animation: scaleIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.modal-icon {
+.modal-icon.error {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     width: 64px;
     height: 64px;
     border-radius: 50%;
-    background-color: #ecfdf5;
-    /* Green 50 */
-    color: #10b981;
-    /* Green 500 */
+    background-color: #fee2e2;
+    color: #ef4444;
     margin-bottom: 16px;
 }
 
@@ -52,8 +50,8 @@
     line-height: 1.5;
 }
 
-.modal-btn {
-    background-color: var(--primary-color);
+.modal-btn.error-btn {
+    background-color: #ef4444;
     color: white;
     border: none;
     padding: 12px 32px;
@@ -65,8 +63,8 @@
     width: 100%;
 }
 
-.modal-btn:hover {
-    background-color: var(--primary-hover);
+.modal-btn.error-btn:hover {
+    background-color: #dc2626;
     transform: translateY(-1px);
 }
 

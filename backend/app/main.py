@@ -60,7 +60,7 @@ class AdminCredentials(BaseModel):
 async def export_applicants(creds: AdminCredentials):
     print(f"DEBUG AUTH: Received username='{creds.username}', password='{creds.password}'")
     # Simple hardcoded auth for demonstration
-    if creds.username != "admin" or creds.password != "admin123":
+    if creds.username != "admin" or creds.password != "L@Net123":
         raise HTTPException(status_code=401, detail="Invalid credentials")
 
     # Fetch all applicants

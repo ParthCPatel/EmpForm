@@ -31,6 +31,17 @@
   border-radius: 0;
 }
 
+.app-logo {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto 16px auto;
+  display: block;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  border: 2px solid #fff;
+}
+
 .header-badge {
   display: inline-flex;
   align-items: center;
