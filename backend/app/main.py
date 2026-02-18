@@ -9,6 +9,8 @@ from .database import applicants_collection
 
 app = FastAPI()
 
+import os
+
 # Configure CORS
 origins = [
     "http://localhost:5173",  # Vite default
@@ -16,6 +18,10 @@ origins = [
     "http://localhost:5175",  # Current running port
     "http://localhost:3000",
 ]
+
+allowed_origin = os.getenv("ALLOWED_ORIGIN")
+if allowed_origin:
+    origins.append(allowed_origin)
 
 app.add_middleware(
     CORSMiddleware,
